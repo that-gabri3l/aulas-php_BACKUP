@@ -1,0 +1,54 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap; /* quebra linha em telas menores */
+        }
+
+        /* Estilo dos cards */
+        .pessoa {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-top: 6px solid;
+        }
+
+        /* Cores diferentes para cada pessoa */
+        .pessoa1 {
+            border-top-color: #3498db;
+        }
+
+        .pessoa2 {
+            border-top-color: #e74c3c;
+        }
+
+        .pessoa h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .pessoa p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .destaque {
+            font-weight: bold;
+            color: #2c3e50;
+        }
