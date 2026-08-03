@@ -5,6 +5,12 @@ Neste projeto,estamos estudando a
 
 - Sintaxe geral
 - Variaveis e constantes
+
+```php
+$aluno = "Fulano";
+const ESCOLA = "Senac";
+```
+
 - Arrays e objetos genericos
 
 ## Recursos para estudar
