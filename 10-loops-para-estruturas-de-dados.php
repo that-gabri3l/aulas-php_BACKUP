@@ -73,11 +73,6 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin: 1.5rem 0;
         }
-
-        ::selection {
-            background: var(--gold);
-            color: #111;
-        }
     </style>
 </head>
 
@@ -119,6 +114,45 @@
     endfor; //fim do acesso a cada linha
     ?>
 
+        <hr>
+
+        <h2>Usando o Loop foreach para arrays</h2>
+        <?php 
+        $alunos = ["Thiago", "Adela", "Renan", "Perola"];
+        foreach($alunos as $aluno):
+        ?>
+
+        <p><?= $aluno ?></p>
+
+        <?php 
+        endforeach
+        ?>
+
+        <hr>
+
+        <h2>Usando foreach para array associativo</h2>
+
+        <?php 
+        $curso = [
+            "Titulo" => "Gastronomia",
+            "carga_horaria" => 200,
+            "descriacao"=> "Aprender o basico sobre a área"
+        ];
+
+        foreach($curso as $chave => $valor):
+        ?>
+        <p><b><?= $chave ?></b>: <?= $valor ?></p>
+
+        <?php 
+        endforeach;
+
+        //Extraindo somente o valor
+        foreach($curso as $valor):
+        ?>
+            <p><i><?= $valor ?></i></p>
+        <?php 
+        endforeach;
+        ?>
 
     </div>
 
