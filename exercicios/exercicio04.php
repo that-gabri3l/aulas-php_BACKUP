@@ -46,6 +46,7 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin: 1.5rem 0;
         }
+        
     </style>
 </head>
 <body>
@@ -84,17 +85,29 @@
     ];
 ?>
 
-    <ul>
-        <?php foreach ($linguagens as $linguagem): ?>
-            <li>
-                <h2>
-                    <b><?= $linguagem["id"] ?>.</b> <?= $linguagem["nome"] ?>
-                </h2>
-                <p><?= $linguagem["descricao"] ?></p>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <div>
+        <table class="table table-striped table-bordered ">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center"style="width: 80px;">ID</th>
+                    <th scope="col ">Linguagem</th>
+                    <th scope="col">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($linguagens as $linguagem): ?>
+                <tr>
+                    <td class="text-center fw-bold" style="color:#d4af37"><?= $linguagem["id"] ?>
+                </td>
+                <td class="fw-sembold "><?= $linguagem["nome"] ?></td>
+                <td><?= $linguagem["descricao"] ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+
+    
 
 
 
