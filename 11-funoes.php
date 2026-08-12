@@ -154,6 +154,18 @@
         ?>
         <p>numero 10: <?= verificarNegativo(10) ?></p>
         <p>numero -10: <?= verificarNegativo(-10) ?></p>
+
+        <hr>
+        <h2>Função anônima (ou lambda)</h2>
+
+        <?php  // SEMPRE DECLARAR Primeiro a função antes de chamar
+        $multiplicar = function(float $valor1, float $valor2):float{
+            return $valor1 * $valor2;
+
+        };
+        ?>
+        <!-- Repare no uso do $junto com o nome da função -->
+        <p>exemplo: <?= $multiplicar(10,2) ?></p>
     </div>
 
 
