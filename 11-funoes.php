@@ -141,6 +141,19 @@
 
         <p>Saudação 1: <?= exibirMensagem("Boa tarde", "Samuel") ?></p>
         <p>Saudação 2: <?= exibirMensagem("Boa dia") ?></p>
+
+        <hr>
+
+        <h2>Função com indução de tipos de dados</h2>
+        <p>Nesta abordagem, definimos tipos de dados para parâmetros e para o retorno da função.</p>
+        <?php  
+        function verificarNegativo (int $valor):string{
+            if($valor <0) return "é negativo";
+        return "não é negativo";
+        }
+        ?>
+        <p>numero 10: <?= verificarNegativo(10) ?></p>
+        <p>numero -10: <?= verificarNegativo(-10) ?></p>
     </div>
 
 
