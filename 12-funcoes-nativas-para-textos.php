@@ -140,7 +140,15 @@
 
             <p><?= $textoContendoQuebras ?></p>
             <p><?= nl2br($textoContendoQuebras) ?></p>
-
+            <!-- A função pega as "quebras" com \n e transforma em <br> para o HTML -->
+            
+            <h2>explode()</h2>
+            <?php  
+            $linguagens = "HTML, CSS, JavaScript, PHP, SQL, Python, C#, Java";
+            $arrayLinguagens = explode(", ",$linguagens);
+            ?>
+            <pre><?php var_dump($linguagens) ?></pre>
+            <pre><?php var_dump($arrayLinguagens) ?></pre>
 
 
 
