@@ -34,12 +34,12 @@
         }
 
         a {
-            color: var(--gold);
+            color: var(--gold-light);
             text-decoration: none;
         }
 
         a:hover {
-            color: var(--gold-light);
+            color: var(--text);
         }
 
         input,
@@ -109,9 +109,37 @@
             <p>Frase com substituição de palavra: <?= $fraseComSubstituicaoDePalavra ?></p>
             <p>Frase Censurada: <?= $fraseCensurada ?></p>
 
+            <h2>strip_tags()</h2>
+            <?php  
+            $codigoHTML ="<h3>HTML5- <a href='http://sp.senac.'br>Senac</a> </h3>";
+            $textoSemTags = strip_tags($codigoHTML);
+            ?>
+            <div>
+                <?= $codigoHTML ?>
+                <?= $textoSemTags ?>
+            </div>
 
-        
+            <h2>trim</h2>
+            <?php  
+            $textpComEspacosAdicionais =" Curso PHP ";
+            $textoSemEspacos = trim ($textpComEspacosAdicionais);
+            
+            $textoComQuebras = "\n\n Texto qualquer e etc e tal";
+            $textoSemQuebras = trim($textoComQuebras);
+            ?>
+            <pre><?php var_dump($textpComEspacosAdicionais) ?></pre>
+            <pre><?php var_dump($textoSemEspacos) ?></pre>
+            <br>
+            <pre><?php var_dump($textoComQuebras) ?></pre>
+            <pre><?php var_dump($textoSemQuebras) ?></pre>
 
+            <h2>nl2br</h2> 
+            <?php  
+            $textoContendoQuebras = "A vida é feita de escolhas \n e a cada decisão, uma nova jornada começa. \n Às vezes, o caminho parece claro, \n mas em outras, a névoa da dúvida nos envolve. \n Mesmo assim, é importante seguir em frente. \n A coragem está em continuar, \n mesmo quando as respostas não são evidentes. \n Aprendemos com os erros e acertos, \n e cada experiência nos molda para o que está por vir. \n O segredo é nunca parar de caminhar.";
+            ?>
+
+            <p><?= $textoContendoQuebras ?></p>
+            <p><?= nl2br($textoContendoQuebras) ?></p>
 
 
 
