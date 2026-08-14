@@ -19,7 +19,6 @@
 
         body {
             background: var(--bg);
-            color: var(--text);
             font-family: system-ui, sans-serif;
             line-height: 1.6;
         }
@@ -33,23 +32,30 @@
             color: var(--gold);
         }
 
+        p {
+            font-size: 1.15rem;
+            color: #f0f0f0;
+        }
+
         a {
             color: var(--gold);
             text-decoration: none;
         }
 
+        .aprovado {
+    color: var(--gold);          
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.reprovado {
+    color: var(--text);          
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
         a:hover {
             color: var(--gold-light);
-        }
-
-        input,
-        textarea,
-        select {
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 0.6rem 0.9rem;
-            border-radius: 8px;
         }
 
         input:focus,
@@ -72,11 +78,6 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin: 1.5rem 0;
         }
-
-        ::selection {
-            background: var(--gold);
-            color: #111;
-        }
     </style>
 </head>
 <body>
@@ -88,26 +89,47 @@
 <?php  
 $nota1 = 8.7;
 $nota2 = 6.5;
-$nota3 = 4.9;
+$nota3 = 9.9;
 
-function calcularMedia(float $nota1, float $nota2, float $nota3) {
+function calcularMedia(float $nota1, float $nota2, float $nota3):float {
     $media = ($nota1 + $nota2 + $nota3)/3;  
     return $media;
 }
 
-function verificarNotas ($media) {
+function verificarNotas (float $media):string {
     if ($media >= 7) {
-        return "Aprovado";}
-    
-        else{
+        return "Aprovado";
+    } else{
         return "Reprovado";
     }
 }
 
 $mediaFinal = calcularMedia($nota1,$nota2,$nota3);
-$situacao = verificarNotas($mediaFinal)
+$situacao = verificarNotas($mediaFinal);
+
+$mediaFormatada = number_format($mediaFinal,1, ',', '.')
 
 ?>
+
+    <div class="card">
+        <h1>Resultado do Aluno: A</h1>
+
+        <p><strong>Nota 1:</strong> <?= $nota1 ?></p>
+        <p><strong>Nota 2:</strong> <?= $nota2 ?></p>
+        <p><strong>Nota 3:</strong> <?= $nota3 ?></p>
+
+        <hr>
+
+        <p>media <span class="media"> <?= $mediaFormatada ?></span></p>
+
+        <?php
+if ($situacao == 'Aprovado') {
+    echo '<span class="aprovado">' . $situacao . '</span>';
+} else {
+    echo '<span class="reprovado">' . $situacao . '</span>';
+}
+?>
+    </div>
 
 
 
