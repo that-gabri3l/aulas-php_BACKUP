@@ -116,7 +116,7 @@
         <p>Somando os valores de um array</p>
         <?php  
         $carrinhoDeCompras = [
-            "TV_Led" => 1200
+            "TV_Led" => 1200,
             "Ultrabook" => 2500,
             "Geladeira" => 3000];
     $total = array_sum($carrinhoDeCompras);
@@ -162,7 +162,28 @@ $precos = [99, 50, 129];
 $catalago = array_combine($games, $precos);
 ?>
     <pre><?php var_dump($catalago) ?></pre>
-    </div>
+
+    <hr>
+
+    <h2>array_map()</h2>
+    <p>Percorre cada elemento de um array, executa uma funlção (chamada de callback) e gera um novo array com os resultados.</p>
+    <?php  
+    $catalogoComDesconto = array_map(function ($preco) {
+    return $preco - $preco * 0.10;
+    }, $catalago);
+    ?>
+        <pre><?php var_dump($catalogoComDesconto) ?></pre>
+
+        <hr>
+
+
+
+
+
+
+
+
+</div>
 
 
 
