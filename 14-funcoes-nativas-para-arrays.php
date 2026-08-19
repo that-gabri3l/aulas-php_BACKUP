@@ -176,6 +176,32 @@ $catalago = array_combine($games, $precos);
 
         <hr>
 
+        <h2>array_column()</h2>
+        <p>Retorna um novo array com os valores de uma determinada chave assosciativa</p>
+        <?php  
+        $servicos = [
+    ["codigo" => 3, "tipo" => "Limpeza", "status" => "Concluído"],
+    ["codigo" => 12, "tipo" => "Manutenção", "status" => "Concluído"],
+    ["codigo" => 1, "tipo" => "Reparo", "status" => "Pendente"],
+    ["codigo" => 7, "tipo" => "Consultoria", "status" => "Concluído"],
+    ["codigo" => 4, "tipo" => "Instalação", "status" => "Concluído"]
+];
+
+$tiposServicos = array_column($servicos, "tipo");
+?>
+    <pre><?php var_dump($tiposServicos) ?></pre>
+
+    <hr>
+
+    <h2>array_filter()</h2>
+    <p>Retorna valores para um novo array baseadi em alguma condição/criterio</p>
+    <?php  
+    $servicosConcluidos = array_filter(
+        $servicos, fn( array $servico): bool => $servico["status"] === "Concluído"
+    );
+    ?>
+
+    <pre><?php var_dump($servicosConcluidos) ?></pre>
 
 
 
