@@ -100,12 +100,42 @@
                 <p class="text-danger">E-mail incorreto!</p>
         <?php endif ?>
 
+        <h3>FILTER_VALIDADE_URL</h3>
+    <?php  
+    $redeSocial = "httpslinkedin.com /in/tiagobsantos";
+    $redeSocialValida = filter_var($redeSocial, FILTER_VALIDATE_URL);
+    ?>
+
+    <pre><?php var_dump(($redeSocialValida)) ?></pre>
+    <?php if ($redeSocialValida): ?>
+        <a href="<?= $redeSocial ?>" class="btn btn-info">Me siga no linkdin</a>
+    <?php endif; ?>
 
 
+    <hr>
 
+    <h2>sanitização</h2>
 
+    <h3>FILTER_SANITIZE_EMAIL</h3>
 
+    <?php 
+    $contato = "///gabriel.saless125@gmail.:com()";
+    $contatoSanitizado = filter_var($contato, FILTER_SANITIZE_EMAIL);
+    ?>
 
+    <p>Contato <b>sem</b> sanitização:<?= $contato ?></p>
+    <p>Contato <b>Com</b> sanitização:<?= $contatoSanitizado ?></p>
+
+        <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS</h3>
+        <?php  
+        $nomeCompleto = "<img src= 'https://ogimg.infoglobo.com.br/rioshow/25088054-e75-c90/FT1086A/pacoca-caseira.jpg'>";
+        
+        $nomeCompletoSanitizado = filter_var(
+            $nomeCompleto, FILTER_SANITIZE_SPECIAL_CHARS
+        );
+        ?>
+
+        <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
 
 
 
