@@ -128,7 +128,7 @@
 
         <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS</h3>
         <?php  
-        $nomeCompleto = "<img src= 'https://ogimg.infoglobo.com.br/rioshow/25088054-e75-c90/FT1086A/pacoca-caseira.jpg'>";
+        $nomeCompleto = "<img src= 'https://ogimg.infoglobo.com.br/rioshow/25088054-e75-c90/FT1086A/pacoca-caseira.jpg'>"; 
         
         $nomeCompletoSanitizado = filter_var(
             $nomeCompleto, FILTER_SANITIZE_SPECIAL_CHARS
@@ -137,6 +137,22 @@
 
         <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
 
+        <?php  
+        //Simulando um ataque de injeção de codigo JS (XSS - Cross Site Scripting
+        
+        $ataqueXSS = "<script>location = 'https://sp.senac.br'</script>";?>
+
+        <p>Teste: <?= filter_var($ataqueXSS , FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></p>
+
+        <h3>htmlspecialchars()</h3>
+        <p>Pode ser usado como alternativa ao filtro.</p>
+<?php  
+$nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
+$ataqueEvitado = htmlspecialchars($ataqueXSS);
+?>
+
+        <p>Nome Complreto corrigido: <?= $nomeCompletoCorrigido ?></p>
+        <p>Ataque evitado: <?= $ataqueEvitado ?></p>
 
 
 
