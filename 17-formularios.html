@@ -12,48 +12,55 @@
         <h1>Formulario HTML e processamento externo com PHP</h1>
         <hr>
         <form action="" method="post">
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
+            <div class="mb-3">
+                <label class="form-label" for="nome">Nome:</label>
+                <input class="form-control" type="text" name="nome" id="nome">
             </div>
-            <div>
-                <label for="Email">E-mail:</label>
-                <input type="email" name="Email" id="Email">
+            <div class="mb-3">
+                <label class="form-label" for="Email">E-mail:</label>
+                <input class="form-control" type="email" name="Email" id="Email">
             </div>
-            <div>
-                <label for="idade">Idade:</label>
-                <input type="number" name="idade" id="idade" min="0" max="130">
+            <div class="mb-3">
+                <label class="form-label" for="idade">Idade:</label>
+                <input class="form-control" type="number" name="idade" id="idade" min="0" max="130">
             </div>
 
-            <div>
-                <p>Interesses:</p>
-                <div>
-                    <input type="checkbox" name="interresses" id="html">
-                    <label for="html">HTML</label>
+            <div class="mb-3">
+                <p class="mb-2">Interesses:</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="interresses" id="html">
+                    <label class="form-check-label" for="html">HTML</label>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="interresses" id="CSS">
-                    <label for="css">CSS</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="interresses" id="CSS">
+                    <label class="form-check-label" for="css">CSS</label>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="interresses" id="javascript">
-                    <label for="javascript">Javascript</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="interresses" id="javascript">
+                    <label  for="javascript"class="form-check-label">Javascript</label>
                 </div>
                 </div>
 
-                <div>
-                    <p>Deseja receber informativos?</p>
-                    <div>
-                        <input type="radio" name="informativos" id="sim">
-                        <label for="sim">Sim</label>
+                <div class="mb-3">
+                    <p class="mb-2">Deseja receber informativos?</p>
+                    <div class="form-cheak">
+                        <input class="form-cheak-input" type="radio" name="informativos" id="sim">
+                        <label for="sim" class="form-cheak-label">Sim</label>
                     </div>
-                    <div>
-                        <input type="radio" name="informativos" id="nao">
-                        <label for="nao">Não</label>
+                    <div class="form-cheak">
+                        <input class="form-cheak-input" type="radio" name="informativos" id="nao">
+                        <label for="nao" class="form-cheak-label">Não</label>
                     </div>
                 </div>
+                
+                <div class="mb-3">
+                    <label for="mensagem" class="form-label">Mensagem</label>
+                    <textarea class="form-control" name="mensagem" id="mensagem" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Dados</button>
+
             </div>
         </form>
     </div>
