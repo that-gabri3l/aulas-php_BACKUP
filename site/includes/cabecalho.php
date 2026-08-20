@@ -19,6 +19,7 @@ const BASE = "/site/";
             <a href="<?= BASE ?>cursos.php">Cursos</a>
             <a href="<?= BASE ?>duvidas.php">Duvidas</a>
             <a href="<?= BASE ?>planos.php">Planos</a>
+            <a href="<?= BASE ?>consultoria.php">Consultoria</a>
         </nav>
     </header>
 
