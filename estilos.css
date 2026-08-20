@@ -49,6 +49,9 @@ select {
     background-color: #ffc107;
     border-color: #e9ecef;
 }
+.btn{
+    background-color: var(--gold);
+}
 
 input:focus,
 textarea:focus {

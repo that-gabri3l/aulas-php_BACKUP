@@ -11,6 +11,26 @@
     <div class="container">
         <h1>Recebimento e processamento dos dados</h1>
         <hr>
+        <?php
+        //Capturando os dados de cada campo  
+        //var_dump($_GET);
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $idade = $_POST["idade"];
+        $mensagem = $_POST ["mensagem"];
+        $interresess = $_POST["interresess"] ?? [];
+        $informativos =$_POST["informativos"] ?? "nao";
+        ?>
+        <h2>Dados Recebidos</h2>
+        <p>Nome: <?= $nome ?></p>
+        <p>Email: <?= $email ?></p>
+        <p>idade: <?= $idade ?> anos</p>
+        <p>Mensagem: <?= $mensagem ?> </p>
+        <?php if (empty($interresess)): ?>
+        <p>Interesses: <?= implode(", ", $interresess) ?></p>
+        <?php endif; ?>
+        <p>informativos: 
+            <?= $informativos === 'sim' ? "Sim": "Não" ?></p>
     </div>
 
 
