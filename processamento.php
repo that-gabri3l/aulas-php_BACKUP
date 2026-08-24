@@ -29,28 +29,82 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_NUMBER_INT);
     $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_SPECIAL_CHARS);
 
+    $interessesValidos = ["html", "css", "javascript"];
+
     /* Operador ?? -> coalescência nula
     Caso nenhum interesse seja selecionado,
     a variável guardará um array vazio */
-    $interesses = $_POST["interesses"] ?? [];
 
+    //Filtrando as opções de interesses e tornando obrigatori o uso de array
+    $interesses = filter_input(INPUT_POST, 'interesses', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY) ?? [];
+
+    if(!is_array($interesses)){
+        //garantindo que ao menos vire um array vazio
+        $interesses = [];
+
+        //registrando uma mensagem de erro no array de erros
+        $erros [] = "Seleção invalida de interesses";   
+    }
+
+
+    $interessesValidos = array_intersect($interesses, $interessesValidos);
     // Caso nenhuma opção seja selecionada, o valor "nao" fica como padrão
-    $informativos = $_POST["informativos"] ?? "nao";
+
+    //Informativos
+    //Define uma lista de opções valudas confrome o formulario
+    $opcoesValidas = ["sim", "nao"];
+    
+    //Filtramos a entrada que o usuario escolheu
+    $informativos = filter_input(INPUT_POST, 'informativos', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    //Verificamos se a escolha do usuario é uma das validas. Se sim, usamos ela. Senão, usamos "nao'
+    $informativos = in_array($informativos, $opcoesValidas) ? $informativos : "nao";
+
+    if(empty ($nome)) $erros[] = "O campo nome é obrigatorio";
+    if(empty ($email)) $erros[] = "O e-mail deve ser informado";
+    if(empty($mensagem)) $erros[] = "Você deve escrever uma mensagem";
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "O email é valido";
+
+
+    $filtroIdade = [
+        "options" => [
+            "min_range" => 0,
+            "max_range" => 130,
+        ]
+    ];
+    if(!filter_var($idade, FILTER_VALIDATE_INT, $filtroIdade)) {
+        $erros [] = "Idade invalida. A idade deve estar entre 0 e 130";
+    }
+
+    if(!empty($erros)):
 ?>  
+    <div class="alert alert-danger">
+        <h2>Erros Encontrados:</h2>
+        <ul class="mb-3">
+            <?php  
+            foreach($erros as $erro): ?>
+            <li><?= $erro ?></li>
+            <?php endforeach ?>
+        </ul>
+        <a href="17-formularios.html" class="btn btn-warning"></a>
+    </div>
+    <?php else: ?>
     <h2>Dados recebidos</h2>
     <p>Nome: <?= $nome ?></p>
     <p>E-mail: <?= $email ?></p>
     <p>Idade: <?= $idade ?> anos</p>
     <p>Mensagem: <?= $mensagem ?> </p>
 
-    <?php if(!empty($interesses)): ?>
-    <p>Interesses: <?= implode(", ", $interesses) ?></p>
+    <?php if(!empty($interessesValidos)): ?>
+    <p>Interesses: <?= implode(", ", $interessesValidos) ?></p>
     <?php endif; ?>
 
     <p>Informativos:
         <?= $informativos === 'sim' ? "Sim" : "Não" ?>
     </p>
 <?php
+    endif;
 } else {
 ?>
     <!-- Acesso inválido (usuário não veio do formulário) -->
