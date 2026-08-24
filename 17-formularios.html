@@ -10,18 +10,19 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 
+<!-- GET faz parecer o conteudo, dados sensiveis na barra do link e o Post deixa mais seguro -->
 <body>
-    <div class="container">
+    <div class="container w-50">
         <h1>Formulario HTML e processamento externo com PHP</h1>
         <hr>
-        <form action="processamento.php" method="get">
+        <form action="processamento.php" method="post">
             <div class="mb-3">
                 <label class="form-label" for="nome">Nome:</label>
                 <input class="form-control" type="text" name="nome" id="nome">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="Email">E-mail:</label>
-                <input class="form-control" type="email" name="Email" id="Email">
+                <input class="form-control" type="email" name="email" id="email">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="idade">Idade:</label>

@@ -12,6 +12,8 @@
         <h1>Recebimento e processamento dos dados</h1>
         <hr>
         <?php
+        // $_POST e $_GET = são arrays superglobais que possuem os dados enviados a partir de formularios e/ou links dinâmicos 
+
         //Capturando os dados de cada campo  
         //var_dump($_GET);
         $nome = $_POST["nome"];
@@ -22,10 +24,10 @@
         $informativos =$_POST["informativos"] ?? "nao";
         ?>
         <h2>Dados Recebidos</h2>
-        <p>Nome: <?= $nome ?></p>
-        <p>Email: <?= $email ?></p>
-        <p>idade: <?= $idade ?> anos</p>
-        <p>Mensagem: <?= $mensagem ?> </p>
+        <p>Nome: <?= $nome?></p>
+        <p>Email: <?= $email?></p>
+        <p>idade: <?= $idade?> anos</p>
+        <p>Mensagem: <?= $mensagem?> </p>
         <?php if (empty($interresess)): ?>
         <p>Interesses: <?= implode(", ", $interresess) ?></p>
         <?php endif; ?>
