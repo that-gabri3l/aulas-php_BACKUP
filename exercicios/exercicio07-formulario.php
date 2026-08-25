@@ -5,17 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Produtos</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
+<link rel="stylesheet" href="/estilos.css"> 
 
 </head>
-<body class="bg-light">
+<body >
 
 <div class="container mt-5">
 <div class="row justify-content-center">
     <div class="col-md-6">
 
     <div class="card shadow">
-        <div class="card-header bg-primary text-white text-center">
+        <div class="card-header text-white text-center">
     <h4>Cadastro de Produto</h4>
         </div>
         <div class="card-body p-4">
@@ -34,7 +35,7 @@
                 <option value="Apple">Apple</option>
                 <option value="Samsung">Samsung</option>
                 <option value="Sony">Sony</option>
-                <option value="Dell">Dell</option>
+                <option value="Microsoft">Microsoft</option>
             </select>
             </div>
 

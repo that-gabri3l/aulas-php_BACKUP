@@ -17,7 +17,7 @@ if (empty($nome)) {
   $erros[] = "O nome do produto é obrigatório.";
 }
 
-$fabricantes = ['Apple', 'Samsung', 'Sony', 'Dell'];
+$fabricantes = ['Apple', 'Samsung', 'Sony', 'Microsoft'];
 if (empty($fabricante) || !in_array($fabricante, $fabricantes)) {
   $erros[] = "Selecione um fabricante válido.";
 }
@@ -43,8 +43,9 @@ if (empty($erros)) {
   <meta charset="UTF-8">
   <title>Resultado</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="/estilos.css">
 </head>
-<body class="bg-light">
+<body>
 
 <div class="container mt-5">
   <div class="row justify-content-center">
@@ -68,7 +69,7 @@ if (empty($erros)) {
 
       <?php else: ?>
 
-      <div class="card border-success">
+      <div>
         <div class="card-header bg-success text-white">
           <h5>Produto cadastrado!</h5>
         </div>
